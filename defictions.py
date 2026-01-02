@@ -4,7 +4,11 @@ def split(text):
 
 def last_points(text):
 
-    assert type(text) == list, "the input must be a list not another one"
+    verbs = ["can", "go", "come", "take", "put", "eat", "drink", "sit", "stand",
+         "close", "open", "look", "listen", "wait", "stop", "run", "write",
+         "study", "play", "please"]
+
+    assert type(text) == list, "the input must be a list not another type !"
 
     n = len(text)
 
@@ -21,7 +25,8 @@ def last_points(text):
 
             return "asking(پرسشی)"
         
-        elif text[0] == "can" or text[0] == "go" or text[0] == "come" or text[0] == "take" or text[0] == "put" or text[0] == "eat" or text[0] == "drink" or text[0] == "sit" or text[0] == "stand" or text[0] == "close" or text[0] == "open" or text[0] == "look" or text[0] == "listen" or text[0] == "wait" or text[0] == "stop" or text[0] == "run" or text[0] == "write" or text[0] == "study" or text[0] == "play" or text[0] == "please":
+        elif text[0] in verbs:
+            
             return "imperative(امري)"
         
         else:
