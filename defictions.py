@@ -4,17 +4,54 @@ def split(text):
 
 def last_points(text):
 
-    verbs = ["can", "go", "come", "take", "put", "eat", "drink", "sit", "stand",
+    verbs_for_imprative = ["can", "go", "come", "take", "put", "eat", "drink", "sit", "stand",
          "close", "open", "look", "listen", "wait", "stop", "run", "write",
          "study", "play", "please"]
+    
+    verbs_for_emitional = ["love", "hate", "happy", "sad", "angry", "excited", "scare",
+        "scared", "tired", "bored", "boring", "beautiful"]
 
     assert type(text) == list, "the input must be a list not another type !"
 
     n = len(text)
 
-    if text[n - 1] == "hello" or text[n - 1] == "hello!" or text[n - 1] == "hello !" or text[n - 1] == "hello  !":
+    if "hello" in text or "hello!" in text or "hello !"in text or "hello  !" in text:
+
+        if "?" in text[n - 1]:
+
+            if text[0] == "is" or text[0] == "are" or text[0] == "am":
+            
+                return "asking(پرسشي)"
+            
+            elif "what" in text or "why" in text:
+
+                return "asking(پرسشی)"
+            
+            elif text[0] in verbs_for_imprative:
+                
+                return "imperative(امري)"
+            
+            else:
+                return "asking(پرسشي)"
         
-        return "simple(ساده)"
+        elif "!" in text[n - 1]:
+
+            if "your" in text or "he" in text or "she" in text or "my" in text or "it" in text or "they" in text or "we" in text or "our" in text or "their" in text:
+            
+                return "declarative(خبري)"
+
+            elif verbs_for_emitional in text:
+
+                return "Emotional(عاطفي)"
+
+            else:
+                return "exclamatory(تعجبي)"
+
+                
+        else:
+            
+
+            return "simple(ساده)"
 
     elif "?" in text[n - 1]:   # when question mark in sentence(text):
         
@@ -25,7 +62,7 @@ def last_points(text):
 
             return "asking(پرسشی)"
         
-        elif text[0] in verbs:
+        elif text[0] in verbs_for_imprative:
             
             return "imperative(امري)"
         
