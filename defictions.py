@@ -15,83 +15,83 @@ def last_points(text):
 
     n = len(text)
 
-    if "hello" in text or "hello!" in text or "hello !"in text or "hello  !" in text:
+    if "hello" in text or "hello!" in text or "hello !"in text or "hello  !" in text:   #when sentense in only 'hello'
 
         if "?" in text[n - 1]:
 
             if text[0] == "is" or text[0] == "are" or text[0] == "am":
             
-                return "asking(پرسشي)"
+                return "asking"
             
             elif "what" in text or "why" in text:
 
-                return "asking(پرسشی)"
+                return "asking"
             
             elif text[0] in verbs_for_imprative:
                 
-                return "imperative(امري)"
+                return "imperative"
             
             else:
-                return "asking(پرسشي)"
+                return "asking"
         
         elif "!" in text[n - 1]:
 
             if "your" in text or "he" in text or "she" in text or "my" in text or "it" in text or "they" in text or "we" in text or "our" in text or "their" in text:
             
-                return "declarative(خبري)"
+                return "declarative"
 
             elif verbs_for_emitional in text:
 
-                return "Emotional(عاطفي)"
+                return "Emotional"
 
             else:
-                return "exclamatory(تعجبي)"
+                return "exclamatory"
 
                 
         else:
             
 
-            return "simple(ساده)"
+            return "simple"
 
     elif "?" in text[n - 1]:   # when question mark in sentence(text):
         
         if text[0] == "is" or text[0] == "are" or text[0] == "am":
             
-            return "asking(پرسشي)"
+            return "asking"
         elif "what" in text or "why" in text:
 
-            return "asking(پرسشی)"
+            return "asking"
         
         elif text[0] in verbs_for_imprative:
             
-            return "imperative(امري)"
+            return "imperative"
         
         else:
-            return "asking(پرسشي)"
+            return "asking"
         
     elif "!" in text[n - 1]:   # when Exclamation mark in sentence(text):
         
         if "your" in text or "he" in text or "she" in text or "my" in text or "it" in text or "they" in text or "we" in text or "our" in text or "their" in text:
             
-            return "declarative(خبري)"
+            return "declarative"
 
         elif "love" in text or "hate" in text or "happy" in text or "sad" in text or "angry" in text or "excited" in text or "scare" in text or "scared" in text or "tired" in text or "bored" in text or "beautiful" in text:
 
-            return "Emotional(عاطفي)"
+            return "Emotional"
 
         else:
-            return "exclamatory(تعجبي)"
-    elif "." in text[n - 1]:
+            return "exclamatory"
+    elif "." in text[n - 1]:   #when sentence has only ' . ' in last
         
         if "your" in text or "he" in text or "she" in text or "my" in text or "it" in text or "they" in text or "we" in text or "our" in text or "their" in text:
             
-            return "declarative(خبري)"
+            return "declarative"
     elif text[0] == "can" or text[0] == "is" or text[0] == "are" or text[0] == "am":
 
-        return "asking(پرسشی)"
+        return "asking"
     elif text[0] == "he" or text[0] == "she" or text[0] == "i" or text[0] == "i'm" or text[0] == "you" or text[0] == "you're" or text[0] == "he's" or text[0] == "she's":
 
-        return "declarative(خبری)"
+        return "declarative"
     else:
         
         return "please add a mark(?, !, .)"
